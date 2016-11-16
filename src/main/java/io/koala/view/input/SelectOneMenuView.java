@@ -19,8 +19,8 @@ import io.koala.domain.Theme;
 import io.koala.service.ThemeService;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@ManagedBean
+@Named
 public class SelectOneMenuView {
 
 	private String console;
@@ -42,8 +42,13 @@ public class SelectOneMenuView {
 	private Theme theme;
 	private List<Theme> themes;
 
-	@ManagedProperty("#{themeService}")
+//	@ManagedProperty("#{themeService}")
 	private ThemeService service;
+
+	@Inject
+	public SelectOneMenuView(ThemeService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

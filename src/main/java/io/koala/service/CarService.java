@@ -18,13 +18,13 @@ package io.koala.service;
 import io.koala.domain.Car;
 
 import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
 
-@ManagedBean(name = "carService")
+@Named("carService")
 @ApplicationScoped
 public class CarService {
 

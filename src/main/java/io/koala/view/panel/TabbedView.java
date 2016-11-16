@@ -21,12 +21,12 @@ import org.primefaces.event.TabCloseEvent;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class TabbedView {
 
 	private List<Car> cars;

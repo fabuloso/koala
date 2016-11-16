@@ -21,12 +21,12 @@ import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 
-@ManagedBean(name = "treeDNDView")
+@Named("treeDNDView")
 @ViewScoped
 public class DragDropView implements Serializable {
 

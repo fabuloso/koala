@@ -19,12 +19,12 @@ import io.koala.domain.User;
 import org.primefaces.event.FlowEvent;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class UserWizard implements Serializable {
 

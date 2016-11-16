@@ -20,12 +20,12 @@ import io.koala.service.DocumentService;
 import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 
-@ManagedBean(name = "ttBasicView")
+@Named("ttBasicView")
 @ViewScoped
 public class BasicView implements Serializable {
 
@@ -33,8 +33,13 @@ public class BasicView implements Serializable {
 
 	private Document selectedDocument;
 
-	@ManagedProperty("#{documentService}")
+//	@ManagedProperty("#{documentService}")
 	private DocumentService service;
+
+	@Inject
+	public BasicView(DocumentService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

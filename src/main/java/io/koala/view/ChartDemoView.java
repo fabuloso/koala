@@ -38,7 +38,7 @@ import org.primefaces.model.chart.PieChartModel;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -46,7 +46,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@ManagedBean(name = "chartDemoView")
+@Named("chartDemoView")
 public class ChartDemoView implements Serializable {
 
 	private LineChartModel lineModel1;

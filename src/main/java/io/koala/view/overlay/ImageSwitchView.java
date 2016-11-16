@@ -16,11 +16,11 @@
 package io.koala.view.overlay;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class ImageSwitchView {
 
 	private List<String> images;

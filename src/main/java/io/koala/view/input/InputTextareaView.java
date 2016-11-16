@@ -15,11 +15,11 @@
  */
 package io.koala.view.input;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class InputTextareaView {
 
 	public List<String> completeArea(String query) {

@@ -22,20 +22,25 @@ import org.primefaces.event.UnselectEvent;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class OrderListView {
 
-	@ManagedProperty("#{themeService}")
+//	@ManagedProperty("#{themeService}")
 	private ThemeService service;
 
 	private List<String> cities;
 	private List<Theme> themes;
+
+	@Inject
+	public OrderListView(ThemeService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

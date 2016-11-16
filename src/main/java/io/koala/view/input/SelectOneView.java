@@ -19,19 +19,24 @@ import io.koala.domain.Theme;
 import io.koala.service.ThemeService;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class SelectOneView {
 
 	private String option;
 	private Theme theme;
 	private List<Theme> themes;
 
-	@ManagedProperty("#{themeService}")
+//	@ManagedProperty("#{themeService}")
 	private ThemeService service;
+
+	@Inject
+	public SelectOneView(ThemeService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

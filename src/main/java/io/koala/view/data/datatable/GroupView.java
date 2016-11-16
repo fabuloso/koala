@@ -19,7 +19,7 @@ import io.koala.domain.Player;
 import io.koala.domain.Sale;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
 import java.text.DecimalFormat;
@@ -28,7 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 
-@ManagedBean(name = "dtGroupView")
+@Named("dtGroupView")
 @ViewScoped
 public class GroupView implements Serializable {
 

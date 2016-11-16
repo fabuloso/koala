@@ -16,11 +16,11 @@
 package io.koala.view.input;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class CheckboxView {
 
 	private String[] selectedConsoles;

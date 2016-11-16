@@ -18,10 +18,10 @@ package io.koala.view.input;
 import org.primefaces.event.RateEvent;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Named
 public class RatingView {
 
 	private Integer rating1;

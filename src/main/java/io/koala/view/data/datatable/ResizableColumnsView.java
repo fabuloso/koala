@@ -21,20 +21,25 @@ import org.primefaces.event.ColumnResizeEvent;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@ManagedBean(name = "dtResizableColumnsView")
+@Named("dtResizableColumnsView")
 public class ResizableColumnsView implements Serializable {
 
 	private List<Car> cars1;
 	private List<Car> cars2;
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public ResizableColumnsView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

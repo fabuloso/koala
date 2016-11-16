@@ -19,12 +19,12 @@ import io.koala.service.DocumentService;
 import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 
-@ManagedBean(name = "ttScrollableView")
+@Named("ttScrollableView")
 @ViewScoped
 public class ScrollableView implements Serializable {
 
@@ -32,8 +32,13 @@ public class ScrollableView implements Serializable {
 	private TreeNode root2;
 	private TreeNode root3;
 
-	@ManagedProperty("#{documentService}")
+//	@ManagedProperty("#{documentService}")
 	private DocumentService service;
+
+	@Inject
+	public ScrollableView(DocumentService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

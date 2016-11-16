@@ -18,11 +18,11 @@ package io.koala.view.overlay;
 import io.koala.domain.Movie;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class MovieView {
 
 	private List<Movie> movieList;

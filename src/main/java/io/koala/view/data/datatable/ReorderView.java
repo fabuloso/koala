@@ -21,21 +21,25 @@ import org.primefaces.event.ReorderEvent;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@ManagedBean(name = "dtReorderView")
+@Named("dtReorderView")
 public class ReorderView implements Serializable {
 
 	private List<Car> cars1;
 
 	private List<Car> cars2;
 
-	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public ReorderView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

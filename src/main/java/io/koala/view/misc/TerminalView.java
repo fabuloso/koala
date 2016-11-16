@@ -15,10 +15,10 @@
  */
 package io.koala.view.misc;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.util.Date;
 
-@ManagedBean
+@Named
 public class TerminalView {
 
 	public String handleCommand(String command, String[] params) {

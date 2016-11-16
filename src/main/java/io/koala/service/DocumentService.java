@@ -21,9 +21,9 @@ import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
 import javax.faces.bean.ApplicationScoped;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 
-@ManagedBean(name = "documentService")
+@Named("documentService")
 @ApplicationScoped
 public class DocumentService {
 

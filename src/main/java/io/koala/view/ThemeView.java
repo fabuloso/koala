@@ -1,10 +1,10 @@
 package io.koala.view;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.bean.SessionScoped;
 import java.io.Serializable;
 
-@ManagedBean
+@Named
 @SessionScoped
 public class ThemeView implements Serializable {
 

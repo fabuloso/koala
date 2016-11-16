@@ -19,11 +19,11 @@ import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
 
-@ManagedBean(name = "treeBasicView")
+@Named("treeBasicView")
 @ViewScoped
 public class BasicView implements Serializable {
 

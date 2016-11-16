@@ -18,12 +18,12 @@ package io.koala.view.data;
 import io.koala.domain.Car;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class RingView implements Serializable {
 
 	private List<Car> cars;

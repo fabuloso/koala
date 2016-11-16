@@ -15,11 +15,11 @@
  */
 package io.koala.view.ajax;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.bean.ViewScoped;
 import java.io.Serializable;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class CounterView implements Serializable {
 

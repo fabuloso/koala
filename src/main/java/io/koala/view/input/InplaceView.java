@@ -15,10 +15,10 @@
  */
 package io.koala.view.input;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.io.Serializable;
 
-@ManagedBean
+@Named
 public class InplaceView implements Serializable {
 
 	private String text = "PrimeFaces";

@@ -21,8 +21,8 @@ import org.primefaces.model.DefaultTreeNode;
 import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
 import java.io.Serializable;
@@ -31,7 +31,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class ColumnManagerView implements Serializable {
 
@@ -43,8 +43,13 @@ public class ColumnManagerView implements Serializable {
 
 	private TreeNode availableColumns;
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public ColumnManagerView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

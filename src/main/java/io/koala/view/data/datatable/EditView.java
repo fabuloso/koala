@@ -22,22 +22,27 @@ import org.primefaces.event.RowEditEvent;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@ManagedBean(name = "dtEditView")
+@Named("dtEditView")
 @ViewScoped
 public class EditView implements Serializable {
 
 	private List<Car> cars1;
 	private List<Car> cars2;
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public EditView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

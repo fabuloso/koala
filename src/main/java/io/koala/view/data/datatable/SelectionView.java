@@ -22,14 +22,14 @@ import org.primefaces.event.UnselectEvent;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@ManagedBean(name = "dtSelectionView")
+@Named("dtSelectionView")
 @ViewScoped
 public class SelectionView implements Serializable {
 
@@ -43,8 +43,13 @@ public class SelectionView implements Serializable {
 	private Car selectedCar;
 	private List<Car> selectedCars;
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public SelectionView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

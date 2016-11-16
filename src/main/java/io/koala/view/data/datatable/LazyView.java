@@ -22,13 +22,13 @@ import org.primefaces.model.LazyDataModel;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 
-@ManagedBean(name = "dtLazyView")
+@Named("dtLazyView")
 @ViewScoped
 public class LazyView implements Serializable {
 
@@ -36,8 +36,13 @@ public class LazyView implements Serializable {
 
 	private Car selectedCar;
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public LazyView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

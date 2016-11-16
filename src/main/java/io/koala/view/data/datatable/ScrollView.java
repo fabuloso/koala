@@ -19,13 +19,13 @@ import io.koala.domain.Car;
 import io.koala.service.CarService;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@ManagedBean(name = "dtScrollView")
+@Named("dtScrollView")
 @ViewScoped
 public class ScrollView implements Serializable {
 
@@ -36,8 +36,13 @@ public class ScrollView implements Serializable {
 	private List<Car> cars5;
 	private List<Car> cars6;
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public ScrollView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

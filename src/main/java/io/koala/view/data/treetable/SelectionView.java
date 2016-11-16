@@ -20,13 +20,13 @@ import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 
-@ManagedBean(name = "ttSelectionView")
+@Named("ttSelectionView")
 @ViewScoped
 public class SelectionView implements Serializable {
 
@@ -37,8 +37,13 @@ public class SelectionView implements Serializable {
 	private TreeNode[] selectedNodes1;
 	private TreeNode[] selectedNodes2;
 
-	@ManagedProperty("#{documentService}")
+//	@ManagedProperty("#{documentService}")
 	private DocumentService service;
+
+	@Inject
+	public SelectionView(DocumentService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

@@ -21,10 +21,10 @@ import org.primefaces.model.map.MapModel;
 import org.primefaces.model.map.Marker;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.io.Serializable;
 
-@ManagedBean
+@Named
 public class MarkersView implements Serializable {
 
 	private MapModel simpleModel1;

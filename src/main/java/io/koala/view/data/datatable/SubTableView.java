@@ -19,11 +19,11 @@ import io.koala.domain.Stats;
 import io.koala.domain.Team;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean(name = "dtSubTableView")
+@Named("dtSubTableView")
 public class SubTableView {
 
 	private List<Team> teams;

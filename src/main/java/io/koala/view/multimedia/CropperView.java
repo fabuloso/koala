@@ -18,13 +18,13 @@ package io.koala.view.multimedia;
 import org.primefaces.model.CroppedImage;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 import javax.imageio.stream.FileImageOutputStream;
 import javax.servlet.ServletContext;
 import java.io.File;
 
-@ManagedBean
+@Named
 public class CropperView {
 
 	private CroppedImage croppedImage;

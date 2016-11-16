@@ -19,15 +19,15 @@ import io.koala.service.DocumentService;
 import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@ManagedBean(name = "ttColumnsView")
+@Named("ttColumnsView")
 @ViewScoped
 public class ColumnsView implements Serializable {
 
@@ -39,8 +39,13 @@ public class ColumnsView implements Serializable {
 
 	private TreeNode root;
 
-	@ManagedProperty("#{documentService}")
+//	@ManagedProperty("#{documentService}")
 	private DocumentService service;
+
+	@Inject
+	public ColumnsView(DocumentService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

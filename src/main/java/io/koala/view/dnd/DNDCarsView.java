@@ -20,18 +20,18 @@ import io.koala.service.CarService;
 import org.primefaces.event.DragDropEvent;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean(name = "dndCarsView")
+@Named("dndCarsView")
 @ViewScoped
 public class DNDCarsView implements Serializable {
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
 
 	private List<Car> cars;
@@ -39,6 +39,11 @@ public class DNDCarsView implements Serializable {
 	private List<Car> droppedCars;
 
 	private Car selectedCar;
+
+	@Inject
+	public DNDCarsView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

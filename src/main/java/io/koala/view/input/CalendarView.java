@@ -19,12 +19,12 @@ import org.primefaces.context.RequestContext;
 import org.primefaces.event.SelectEvent;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-@ManagedBean
+@Named
 public class CalendarView {
 
 	private Date date1;

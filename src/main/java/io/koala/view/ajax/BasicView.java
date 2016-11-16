@@ -15,9 +15,9 @@
  */
 package io.koala.view.ajax;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
 public class BasicView {
 
 	private String text;

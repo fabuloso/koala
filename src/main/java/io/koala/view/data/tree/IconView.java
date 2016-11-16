@@ -19,16 +19,21 @@ import io.koala.service.DocumentService;
 import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.inject.Inject;
+import javax.inject.Named;
 
-@ManagedBean(name = "treeIconView")
+@Named("treeIconView")
 public class IconView {
 
 	private TreeNode root;
 
-	@ManagedProperty("#{documentService}")
+//	@ManagedProperty("#{documentService}")
 	private DocumentService service;
+
+	@Inject
+	public IconView(DocumentService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

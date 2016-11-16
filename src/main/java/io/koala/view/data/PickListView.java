@@ -24,20 +24,25 @@ import org.primefaces.model.DualListModel;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class PickListView {
 
-	@ManagedProperty("#{themeService}")
+//	@ManagedProperty("#{themeService}")
 	private ThemeService service;
 
 	private DualListModel<String> cities;
 	private DualListModel<Theme> themes;
+
+	@Inject
+	public PickListView(ThemeService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

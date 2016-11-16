@@ -19,10 +19,10 @@ import org.primefaces.event.CloseEvent;
 import org.primefaces.event.ToggleEvent;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Named
 public class PanelView {
 
 	public void onClose(CloseEvent event) {

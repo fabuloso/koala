@@ -19,17 +19,22 @@ import io.koala.domain.Theme;
 import io.koala.service.ThemeService;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class ThemeSwitcherView {
 
 	private List<Theme> themes;
 
-	@ManagedProperty("#{themeService}")
+//	@ManagedProperty("#{themeService}")
 	private ThemeService service;
+
+	@Inject
+	public ThemeSwitcherView(ThemeService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

@@ -24,13 +24,13 @@ import org.primefaces.model.TreeNode;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 
-@ManagedBean(name = "treeEventsView")
+@Named("treeEventsView")
 @ViewScoped
 public class EventsView implements Serializable {
 
@@ -38,8 +38,13 @@ public class EventsView implements Serializable {
 
 	private TreeNode selectedNode;
 
-	@ManagedProperty("#{documentService}")
+//	@ManagedProperty("#{documentService}")
 	private DocumentService service;
+
+	@Inject
+	public EventsView(DocumentService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

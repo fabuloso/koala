@@ -18,10 +18,10 @@ package io.koala.view.panel;
 import org.primefaces.event.ToggleEvent;
 
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Named
 public class FieldsetView {
 
 	public void handleToggle(ToggleEvent event) {

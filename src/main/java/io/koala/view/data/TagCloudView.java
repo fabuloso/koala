@@ -23,10 +23,10 @@ import org.primefaces.model.tagcloud.TagCloudModel;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Named
 public class TagCloudView {
 
 	private TagCloudModel model;

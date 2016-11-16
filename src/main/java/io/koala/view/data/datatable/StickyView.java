@@ -19,18 +19,23 @@ import io.koala.domain.Car;
 import io.koala.service.CarService;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@ManagedBean(name = "dtStickyView")
+@Named("dtStickyView")
 public class StickyView implements Serializable {
 
 	private List<Car> cars;
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public StickyView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

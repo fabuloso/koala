@@ -16,13 +16,13 @@
 package io.koala.view.input;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import javax.faces.model.SelectItem;
 import javax.faces.model.SelectItemGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-@ManagedBean
+@Named
 public class MultiSelectView {
 
 	private List<SelectItem> categories;

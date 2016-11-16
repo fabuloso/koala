@@ -19,11 +19,11 @@ import org.primefaces.event.SelectEvent;
 import org.primefaces.model.mindmap.DefaultMindmapNode;
 import org.primefaces.model.mindmap.MindmapNode;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.UUID;
 
-@ManagedBean
+@Named
 public class MindmapView implements Serializable {
 
 	private MindmapNode root;

@@ -15,9 +15,9 @@
  */
 package io.koala.view.menu;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
 public class MegaMenuView {
 
 	private String orientation = "horizontal";

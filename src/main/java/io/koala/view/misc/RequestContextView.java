@@ -20,19 +20,26 @@ import org.primefaces.context.RequestContext;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.faces.bean.ManagedBean;
+import javax.inject.Inject;
+import javax.inject.Named;
 import javax.faces.context.FacesContext;
 
-@ManagedBean
+@Named
 public class RequestContextView {
 
 	private User user;
+	private final FacesContext facesContext;
+
+	@Inject
+	public RequestContextView(FacesContext facesContext) {
+		this.facesContext = facesContext;
+	}
 
 	@PostConstruct
 	public void init() {
 		user = new User();
 
-		if (!FacesContext.getCurrentInstance().isPostback()) {
+		if (!this.facesContext.getCurrentInstance().isPostback()) {
 			RequestContext.getCurrentInstance().execute("alert('This onload script is added from backing bean.')");
 		}
 	}

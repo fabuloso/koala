@@ -19,13 +19,13 @@ import io.koala.domain.Car;
 import io.koala.service.CarService;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class DataListView implements Serializable {
 
@@ -37,8 +37,13 @@ public class DataListView implements Serializable {
 
 	private Car selectedCar;
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public DataListView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

@@ -19,20 +19,25 @@ import io.koala.domain.Car;
 import io.koala.service.CarService;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ManagedProperty;
 import javax.faces.bean.ViewScoped;
+import javax.inject.Inject;
+import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@ManagedBean
+@Named
 @ViewScoped
 public class DataScrollerView implements Serializable {
 
 	private List<Car> cars;
 
-	@ManagedProperty("#{carService}")
+//	@ManagedProperty("#{carService}")
 	private CarService service;
+
+	@Inject
+	public DataScrollerView(CarService service) {
+		this.service = service;
+	}
 
 	@PostConstruct
 	public void init() {

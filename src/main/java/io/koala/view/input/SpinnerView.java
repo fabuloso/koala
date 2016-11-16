@@ -15,9 +15,9 @@
  */
 package io.koala.view.input;
 
-import javax.faces.bean.ManagedBean;
+import javax.inject.Named;
 
-@ManagedBean
+@Named
 public class SpinnerView {
 
 	private int number1;
