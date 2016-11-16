@@ -17,29 +17,24 @@ package io.koala.view.misc;
 
 import io.koala.domain.User;
 import org.primefaces.context.RequestContext;
+import org.springframework.web.context.annotation.ApplicationScope;
 
 import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
-import javax.inject.Inject;
-import javax.inject.Named;
 import javax.faces.context.FacesContext;
+import javax.inject.Named;
 
 @Named
+@ApplicationScope
 public class RequestContextView {
 
 	private User user;
-	private final FacesContext facesContext;
-
-	@Inject
-	public RequestContextView(FacesContext facesContext) {
-		this.facesContext = facesContext;
-	}
 
 	@PostConstruct
 	public void init() {
 		user = new User();
 
-		if (!this.facesContext.getCurrentInstance().isPostback()) {
+		if (!FacesContext.getCurrentInstance().isPostback()) {
 			RequestContext.getCurrentInstance().execute("alert('This onload script is added from backing bean.')");
 		}
 	}

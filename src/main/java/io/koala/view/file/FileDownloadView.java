@@ -15,18 +15,24 @@
  */
 package io.koala.view.file;
 
+import org.primefaces.model.DefaultStreamedContent;
 import org.primefaces.model.StreamedContent;
+import org.springframework.web.context.annotation.ApplicationScope;
 
+import javax.faces.context.FacesContext;
 import javax.inject.Named;
+import javax.servlet.ServletContext;
+import java.io.InputStream;
 
 @Named
+@ApplicationScope
 public class FileDownloadView {
 
 	private StreamedContent file;
 
 	public FileDownloadView() {
-//		InputStream stream = ((ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext()).getResourceAsStream("/resources/demo/images/optimus.jpg");
-//		file = new DefaultStreamedContent(stream, "image/jpg", "downloaded_optimus.jpg");
+		InputStream stream = ((ServletContext) FacesContext.getCurrentInstance().getExternalContext().getContext()).getResourceAsStream("/resources/demo/images/optimus.jpg");
+		file = new DefaultStreamedContent(stream, "image/jpg", "downloaded_optimus.jpg");
 	}
 
 	public StreamedContent getFile() {
